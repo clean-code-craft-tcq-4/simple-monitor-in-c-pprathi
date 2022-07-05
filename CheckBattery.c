@@ -5,10 +5,10 @@
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
 
-	int retstatus = 1;
-	if(BATTERY_CHECK(temperature, TEMP_MIN, TEMP_MAX) || BATTERY_CHECK(soc, SOC_MIN, SOC_MAX) || CHARGERATE_CHECK(chargeRate, CHARGERATE_LIMIT))
+	int retstatus = 0;
+	if(!BATTERY_CHECK(temperature, TEMP_MIN, TEMP_MAX) && !BATTERY_CHECK(soc, SOC_MIN, SOC_MAX) && !CHARGERATE_CHECK(chargeRate, CHARGERATE_LIMIT))
 	{
-		retstatus = 0;
+		retstatus = 1;
 	}
 	return retstatus;
 }
